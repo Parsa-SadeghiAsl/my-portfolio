@@ -3,8 +3,8 @@ from django.db import models
 # Home Models
 class Home(models.Model):
     name = models.CharField(max_length = 20)
-    greeting_1 = models.CharField(max_length=10)
-    greeting_2 = models.CharField(max_length=10)
+    greeting_1 = models.CharField(max_length=30)
+    greeting_2 = models.CharField(max_length=30)
     picture = models.ImageField(upload_to='picture/')
     updated = models.DateTimeField(auto_now = True)
 
@@ -30,7 +30,7 @@ class Profile(models.Model):
                               on_delete=models.CASCADE)
     social_name = models.CharField(max_length  = 20)
     link = models.URLField(max_length=200)
-    
+
 
 # Services Models
 class Category(models.Model):
@@ -47,16 +47,17 @@ class Category(models.Model):
 
 
 # skill Models
-class skills(models.Model):
+class Skills(models.Model):
     skill_name = models.CharField(max_length   = 20)
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     
     
 
 
-class portfolio(models.Model):
+class Portfolio(models.Model):
     image = models.ImageField(upload_to='portfolio/')
     link = models.URLField(max_length=200)
+    title = models.CharField(max_length = 20)
 
     def __str__(self):
-        return self.link
+        return self.title
