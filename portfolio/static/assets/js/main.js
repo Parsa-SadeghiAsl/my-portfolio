@@ -77,4 +77,15 @@ sr.reveal('.contact__button', {delay: 600})
 sr.reveal('.contact__message', {delay:400})
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contactForm');
 
+    // Add event listener for the submit button
+    form.addEventListener('submit', function(event) {
+
+        // Display alert to the user
+        alert('Your message have been sent. Thanks for reaching out :D');
+        
+        // Optionally, you can process the form data here
+    });
+});

@@ -148,7 +148,7 @@
 
                     <div class="contact__message">
                         <h1 class='contact__subtitle'>Send A Message</h1>
-                        <form method="post">
+                        <form method="post" id='contactForm'>
                             {% csrf_token %}
                             <div class="form-group">
                                 {{ form.name }}
