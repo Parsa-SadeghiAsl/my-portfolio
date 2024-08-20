@@ -61,3 +61,12 @@ class Portfolio(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Contact(models.Model):
+    name = models.CharField(max_length = 50, blank=False)
+    email = models.EmailField()
+    message = models.TextField(blank=False)
+    
+    def __str__(self):
+        return self.name
