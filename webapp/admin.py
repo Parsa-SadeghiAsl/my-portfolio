@@ -7,6 +7,11 @@ from .models import Home, About, Profile, Category, Skills, Portfolio, Contact
 admin.site.register(Home)
 
 
+# Portfolio
+admin.site.register(Portfolio)
+# contact messages
+admin.site.register(Contact)
+
 # About
 class ProfileInline(admin.TabularInline):
     model = Profile
@@ -29,8 +34,3 @@ class CategoryAdmin(admin.ModelAdmin):
         SkillsInline,
     ]
 
-
-# Portfolio
-admin.site.register(Portfolio)
-# contact messages
-admin.site.register(Contact)

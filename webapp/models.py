@@ -14,7 +14,7 @@ class Home(models.Model):
     
 # About Models
 class About(models.Model):
-    heading = models.CharField(max_length = 50)
+    heading = models.CharField(max_length = 20)
     career = models.CharField(max_length = 20)
     description = models.TextField(blank=False)
     profile_pic = models.ImageField(upload_to='profile/')
@@ -43,8 +43,6 @@ class Category(models.Model):
         
         def __str__(self):
             return self.name
-        
-
 
 # skill Models
 class Skills(models.Model):
@@ -52,6 +50,13 @@ class Skills(models.Model):
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     
     
+class Contact(models.Model):
+    name = models.CharField(max_length = 20, blank=False)
+    email = models.EmailField()
+    message = models.TextField(blank=False)
+    
+    def __str__(self):
+        return self.name
 
 
 class Portfolio(models.Model):
@@ -62,11 +67,3 @@ class Portfolio(models.Model):
     def __str__(self):
         return self.title
     
-
-class Contact(models.Model):
-    name = models.CharField(max_length = 50, blank=False)
-    email = models.EmailField()
-    message = models.TextField(blank=False)
-    
-    def __str__(self):
-        return self.name
