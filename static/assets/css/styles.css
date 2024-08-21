@@ -211,7 +211,7 @@ img{
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 270px;
+    width: 300px;
 }
 
 /* ===== ABOUT =====*/
@@ -447,8 +447,8 @@ img{
         row-gap: 0;
     }
     .home__img{
-        width: 310px;
-        right: 8%;
+        width: 380px;
+        right: 3%;
     }
 
     .about__container{
@@ -520,14 +520,10 @@ img{
 }
 
 /* For tall screens on mobiles y desktop*/
-@media screen and (min-height: 721px) {
+@media screen and (min-height: 720px) {
     .home__container {
         height: 640px;
     }
-    .home__img {
-        width: 350;
-        right: -6%;
-    }
-    
+
 
 }
