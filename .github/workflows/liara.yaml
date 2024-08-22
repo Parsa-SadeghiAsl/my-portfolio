@@ -15,6 +15,9 @@ jobs:
       - name: update-liara
         env:
           LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: ${{secrets.DEBUG}}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           npm i -g @liara/cli@5
           liara deploy --app="parsasadeghiasl" --api-token="$LIARA_TOKEN" --no-app-logs
