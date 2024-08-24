@@ -7,6 +7,7 @@ class Home(models.Model):
     greeting_2 = models.CharField(max_length=30)
     picture = models.ImageField(upload_to='picture/')
     updated = models.DateTimeField(auto_now = True)
+    googleverfication = models.TextField(default='text')
 
     def __str__(self):
         return self.name
