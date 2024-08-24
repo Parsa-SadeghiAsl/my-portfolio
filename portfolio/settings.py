@@ -41,7 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.sitemaps",
     'webapp',
+    'blog',
+    'crispy_forms',
+    'crispy_bootstrap4',
+    'django_summernote',
+    
 ]
 
 MIDDLEWARE = [
@@ -123,6 +129,8 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media/'
 STATIC_ROOT = BASE_DIR / 'static_root/'
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",

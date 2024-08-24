@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block content %}
+    {% load static%}
+    {% load crispy_forms_tags %}
+    <button onclick="window.history.back();" class='btn btn-primary goback-btn'><i class="fa-solid fa-backward"></i> Go Back</button> 
+    <div class="container post_text">
+        <h2 class="section-title">{{ post.title }}</h2>
+        <p class=" text-muted post_details"> <i class="fa-solid fa-user"></i> {{ post.author }} | <i class="fa-duotone fa-solid fa-clock"></i> {{ post.created_on }}</p>
+            <div class="post_card">
+                
+                <p class="card-text ">{{ post.content | safe }}</p>
+        </div>
+    </div>
+    <div class="container post_content">
+        <div class="be-comment-block ">
+            {% with comments.count as total_comments %}
+                <h1 class="section-title">Comments ({{ total_comments }})</h1>
+            {% endwith %}
+            {% for comment in comments %}
+                <div class="be-comment">
+                    <div class="be-img-comment">	
+                            <img src="{% static 'assets/img/avatar.png' %}" alt="" class="be-ava-comment">
+                    </div>
+                    <div class="be-comment-content">
+                        <div class="be-comment-details">
+                            <span class="be-comment-name">
+                                <p href="#"> <i class="fa-solid fa-user"></i> {{ comment.name }}</p>
+                            </span>
+                            <span class="be-comment-time">
+                                <i class="fa-duotone fa-solid fa-clock"></i>
+                                {{ comment.created_on }}
+                            </span>
+                        </div>
+                        <p class="be-comment-text">
+                            {{ comment.body }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class='d-flex justify-content-center container'>
+                <div class="col-md-8 card mb-4  mt-3">
+                    <div class="card-body comment-form">
+                        {% if new_comment %}
+                            <div class="alert alert-success" role="alert">
+                                Your comment is awaiting moderation
+                            </div>
+                        {% else %}
+                            <h3>Leave a comment</h3>
+                            <form method="post" style="margin-top: 1.3em;">
+                                {{ comment_form | crispy }}
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary btn-lg float-end mt-3">Submit</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

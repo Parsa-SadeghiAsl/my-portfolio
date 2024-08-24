@@ -24,20 +24,21 @@
             <nav class="nav bd-grid">
                 
                 <div>
-                    <a href="#" class="nav__logo">{{ home.name }}</a>
+                    <a href="{% url 'index' %}" class="nav_logo">{{ home.name }}</a>
                 </div>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                <div class="nav_menu" id="nav-menu">
+                    <ul class="nav_list">
+                        <li class="nav_item"><a href="{% url 'index' %}#home" class="nav_link {% if activePage == 'home' %}active{% endif %}">Home</a></li>
+                        <li class="nav_item"><a href="{% url 'index' %}#about" class="nav_link">About</a></li>
+                        <li class="nav_item"><a href="{% url 'index' %}#skills" class="nav_link">Skills</a></li>
+                        <li class="nav_item"><a href="{% url 'index' %}#portfolio" class="nav_link">Portfolio</a></li>
+                        <li class="nav_item"><a href="{% url 'index' %}#contact" class="nav_link">Contact</a></li>
+                        <li class="nav_item"><a href="{% url 'blog' %}#Blog" class="nav_link {% if activePage == 'blog' %}active{% endif %}" >Blog</a></li>
                     </ul>
                 </div>
 
-                <div class="nav__toggle" id="nav-toggle">
+                <div class="nav_toggle" id="nav-toggle">
                     <i class='bx bx-menu'></i>
                 </div>
             </nav>
@@ -51,34 +52,38 @@
 
         <!--===== FOOTER =====-->
         <footer class="footer section">
-            <div class="footer__container bd-grid">
-                <div class="footer__data">
-                    <h2 class="footer__title">PARSA SADEGHI ASL</h2>
-                    <p class="footer__text">I'm Parsa and this is my personal website</p>
+            <div class="footer_container bd-grid">
+                <div class="footer_data">
+                    <h2 class="footer_title">PARSA SADEGHI ASL</h2>
+                    <p class="footer_text">I'm Parsa and this is my personal website</p>
                 </div>
 
-                <div class="footer__data">
-                    <h2 class="footer__title">EXPLORE</h2>
+                <div class="footer_data">
+                    <h2 class="footer_title">EXPLORE</h2>
                     <ul>
-                        <li><a href="#home" class="footer__link">Home</a></li>
-                        <li><a href="#about" class="footer__link">About</a></li>
-                        <li><a href="#skills" class="footer__link">Skills</a></li>
-                        <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
-                        <li><a href="#Contact" class="footer__link">Contact</a></li>
+                        <li><a href="#home" class="footer_link">Home</a></li>
+                        <li><a href="#about" class="footer_link">About</a></li>
+                        <li><a href="#skills" class="footer_link">Skills</a></li>
+                        <li><a href="#portfolio" class="footer_link">Portfolio</a></li>
+                        <li><a href="#blog" class="footer_link">Blog</a></li>
+                        <li><a href="#Contact" class="footer_link">Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer__data">
-                    <h2 class="footer__title">FOLLOW</h2>
+                <div class="footer_data">
+                    <h2 class="footer_title">FOLLOW</h2>
 
                     {% for profile in about.profile_set.all %}
-                    <a href="{{ profile.link }}" class="footer__social" target="_blank"><i class='bx bxl-{{ profile.social_name }}'></i></a><br>
+                    <a href="{{ profile.link }}" class="footer_social" target="_blank"><i class='bx bxl-{{ profile.social_name }}'></i></a><br>
                     {% endfor %}
                 </div>
 
 
             </div>
         </footer>
+        <script>
+            var activePage = "{{ activePage }}";
+        </script>
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
 

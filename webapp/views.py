@@ -27,6 +27,7 @@ def index(request):
             'profiles': profiles, 
             'categories': categories, 
             'portfolios': portfolios,
+            'activePage':'home',
             'form': ContactForm(),
         }
         

@@ -12,7 +12,7 @@ const showMenu = (toggleId, navId) =>{
 showMenu('nav-toggle','nav-menu')
 
 /*===== REMOVE MENU MOBILE =====*/
-const navLink = document.querySelectorAll('.nav__link')
+const navLink = document.querySelectorAll('.nav_link')
 
 function linkAction(){
     const navMenu = document.getElementById('nav-menu')
@@ -23,24 +23,27 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /*===== SCROLL SECTIONS ACTIVE LINK =====*/
 const sections = document.querySelectorAll('section[id]')
 
-window.addEventListener('scroll', scrollActive)
-
-function scrollActive(){
-    const scrollY = window.pageYOffset
-
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
-
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active')
-        }
-    })
+if (activePage !== 'blog') {
+    console.log(activePage)
+    window.addEventListener('scroll', scrollActive)
+    
+    function scrollActive(){
+        const scrollY = window.scrollY
+        
+        sections.forEach(current =>{
+            const sectionHeight = current.offsetHeight
+            const sectionTop = current.offsetTop - 50;
+            sectionId = current.getAttribute('id')
+            
+            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.add('active')
+            }else{
+                document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.remove('active')
+            }
+        })
+    }
 }
-
+    
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
     origin: 'top',
@@ -76,16 +79,32 @@ sr.reveal('.contact__input', {delay: 400})
 sr.reveal('.contact__button', {delay: 600})
 sr.reveal('.contact__message', {delay:400})
 
+/*SCROLL BLOG*/
+sr.reveal('.blog_card', {delay: 200})
+sr.reveal('.blog_card_title', {delay: 200})
+sr.reveal('.blog_card_details', {delay: 200})
+sr.reveal('.blog_card_content', {delay: 200})
+sr.reveal('.blog_card_btn', {delay:200})
 
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contactForm');
+/*SCROLL posts*/
 
-    // Add event listener for the submit button
-    form.addEventListener('submit', function(event) {
+sr.reveal('.post_details', {delay: 200})
+sr.reveal('.post_card', {delay: 200})
+sr.reveal('.post_content', {delay: 200})
+sr.reveal('.be-comment-block', {delay:200})
 
-        // Display alert to the user
-        alert('Your message have been sent. Thanks for reaching out :D');
-        
-        // Optionally, you can process the form data here
+
+if (activePage !== 'blog'){
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contactForm');
+    
+        // Add event listener for the submit button
+        form.addEventListener('submit', function(event) {
+    
+            // Display alert to the user
+            alert('Your message have been sent. Thanks for reaching out :D');
+            
+            // Optionally, you can process the form data here
+        });
     });
-});
+}
