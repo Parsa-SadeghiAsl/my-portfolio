@@ -108,3 +108,31 @@ if (activePage !== 'blog'){
         });
     });
 }
+
+// Dark mode
+
+const sun = document.querySelector(".sun")
+const moon = document.querySelector(".moon")
+
+const toggleSwitch = document.querySelector('.dark_mode_btn');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+  document.body.classList.add(currentTheme);
+}
+
+if (currentTheme == 'dark-mode') {
+    sun.classList.toggle("visible")
+    moon.classList.toggle("visible")
+}
+
+toggleSwitch.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  let theme = 'light';
+  sun.classList.toggle("visible")
+  moon.classList.toggle("visible")
+  if (document.body.classList.contains('dark-mode')) {
+    theme = 'dark-mode';
+  }
+  localStorage.setItem('theme', theme);
+});

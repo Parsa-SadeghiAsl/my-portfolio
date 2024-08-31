@@ -38,6 +38,16 @@
                         <li class="nav_item"><a href="{% url 'blog' %}#Blog" class="nav_link {% if activePage == 'blog' %}active{% endif %}" >Blog</a></li>
                     </ul>
                 </div>
+                <button class="dark_mode_btn" aria-label="Toggle color mode" title="Toggle color mode">
+
+                    <div class="sun visible"></div>
+                
+                    <div class="moon">
+                        <div class="star"></div>
+                        <div class="star small"></div>
+                    </div>
+                </button>
+
 
                 <div class="nav_toggle" id="nav-toggle">
                     <i class='bx bx-menu'></i>

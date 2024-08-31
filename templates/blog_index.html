@@ -10,9 +10,11 @@
             <h3 class="blog_card_title">{{ post.title }}</h3>
             <p class="blog_card_details">{{ post.author }} | {{ post.created_on}}</p>
             <p class="blog_card_content">{{post.content|escape|slice:":200" }}</p>
-            <a href="{% url 'post_detail' post.slug  %}">
-                <button class="blog_card_btn">READ MORE</button>
-            </a>
+            <div class="readmore_container">
+                <a href="{% url 'post_detail' post.slug  %}">
+                    <button class="blog_card_btn">READ MORE</button>
+                </a>
+            </div>
             
         </div>
         {% endfor %}
