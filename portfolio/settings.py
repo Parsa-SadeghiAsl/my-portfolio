@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config('DATABASE_URL', default='sqlite:///db.sqlite3'),
+    'default': dj_database_url.config('DATABASE_URL', default='sqlite:///data/db.sqlite3'),
 }
 
 
