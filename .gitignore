@@ -65,7 +65,8 @@ data/
 #media 
 media/
 media/*
-
+media
+./media
 
 # Flask stuff:
 instance/
