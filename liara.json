@@ -6,6 +6,10 @@
         {
             "name": "my-disk",
             "mountTo": "data"
+        },
+        {
+            "name": "media",
+            "mountTo": "media"
         }
     ]
 }
